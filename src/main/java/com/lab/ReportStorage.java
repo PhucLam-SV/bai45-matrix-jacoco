@@ -1,6 +1,5 @@
 package com.lab;
 
-import java.io.File;
 import java.nio.file.Path;
 
 public class ReportStorage {
@@ -13,6 +12,6 @@ public class ReportStorage {
             throw new IllegalArgumentException("Report name is required");
         }
         String fileName = reportName.endsWith(".csv") ? reportName : reportName + ".csv";
-        return Path.of(directory + File.separator + fileName);
+        return Path.of(directory, fileName);
     }
 }

@@ -12,15 +12,13 @@ public class ReportStorageTest {
     private final ReportStorage storage = new ReportStorage();
 
     @Test
-    void hardcodedWindowsSeparator() {
-        Path path = storage.reportFile("reports", "monthly");
-        assertEquals("reports\\monthly.csv", path.toString());
+    void reportFileUsesPathApi() {
+        assertEquals(Path.of("reports", "monthly.csv"), storage.reportFile("reports", "monthly"));
     }
 
     @Test
     void keepsExistingCsvExtension() {
-        Path path = storage.reportFile("reports", "monthly.csv");
-        assertEquals("reports\\monthly.csv", path.toString());
+        assertEquals(Path.of("reports", "monthly.csv"), storage.reportFile("reports", "monthly.csv"));
     }
 
     @Test
